@@ -90,7 +90,72 @@
     <h2>Getting Started</h2>
     <p>If you're new to bioinformatics, start by learning the basics of DNA and protein sequences. Understanding how sequences are represented and what information they contain is the foundation for more advanced analysis.</p>
     
+    <h2>Quick Quiz</h2>
+    <p>Test your understanding of basic bioinformatics concepts:</p>
+    
+    <div id="quiz" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <div class="quiz-question" style="margin-bottom: 20px;">
+            <p><strong>1. How many nucleotide bases are in DNA?</strong></p>
+            <label><input type="radio" name="q1" value="3"> 3</label><br>
+            <label><input type="radio" name="q1" value="4"> 4</label><br>
+            <label><input type="radio" name="q1" value="5"> 5</label><br>
+        </div>
+        
+        <div class="quiz-question" style="margin-bottom: 20px;">
+            <p><strong>2. Which base pairs with Adenine in DNA?</strong></p>
+            <label><input type="radio" name="q2" value="Guanine"> Guanine</label><br>
+            <label><input type="radio" name="q2" value="Thymine"> Thymine</label><br>
+            <label><input type="radio" name="q2" value="Cytosine"> Cytosine</label><br>
+        </div>
+        
+        <div class="quiz-question" style="margin-bottom: 20px;">
+            <p><strong>3. How many standard amino acids are there?</strong></p>
+            <label><input type="radio" name="q3" value="18"> 18</label><br>
+            <label><input type="radio" name="q3" value="20"> 20</label><br>
+            <label><input type="radio" name="q3" value="22"> 22</label><br>
+        </div>
+        
+        <button onclick="checkQuiz()" style="background: #3498db; color: white; padding: 12px 24px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Check Answers</button>
+        
+        <div id="quiz-result" style="margin-top: 20px; display: none;"></div>
+    </div>
+    
+    <div class="highlight" style="margin-top: 30px;">
+        <p><strong>To be continued...</strong></p>
+        <p>More topics coming soon: sequence alignment, BLAST searches, phylogenetic trees, and advanced analysis techniques.</p>
+    </div>
+    
     <p><em>Last updated: January 2025</em></p>
+    
+    <script>
+        function checkQuiz() {
+            const answers = {
+                q1: '4',
+                q2: 'Thymine',
+                q3: '20'
+            };
+            
+            let correct = 0;
+            let total = 3;
+            
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            
+            if (q1 && q1.value === answers.q1) correct++;
+            if (q2 && q2.value === answers.q2) correct++;
+            if (q3 && q3.value === answers.q3) correct++;
+            
+            const result = document.getElementById('quiz-result');
+            result.style.display = 'block';
+            
+            if (correct === total) {
+                result.innerHTML = `<strong style="color: #27ae60;">Perfect! You got all ${correct} questions correct! 🎉</strong>`;
+            } else {
+                result.innerHTML = `<strong style="color: #e74c3c;">You got ${correct} out of ${total} questions correct.</strong> Try again!`;
+            }
+        }
+    </script>
 </body>
 </html>
 
