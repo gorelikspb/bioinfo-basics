@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gorelikspb.github.io/bioinfo-basics/sitemap.xml
+
